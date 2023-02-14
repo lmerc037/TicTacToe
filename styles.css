@@ -51,3 +51,15 @@
     color: red;
   }
   
+  #reset-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: lightgray;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #reset-button:hover {
+    background-color: gray;
+  }
