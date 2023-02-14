@@ -65,3 +65,25 @@ function checkForWin(player) {
   }
   return false;
 }
+
+function checkForDraw() {
+  for (let i = 0; i < cells.length; i++) {
+    if (cells[i].textContent === "") {
+      return false;
+    }
+  }
+  return true;
+}
+
+function restart() {
+  for (let i = 0; i < cells.length; i++) {
+    cells[i].textContent = "";
+  }
+  result.textContent = "";
+
+  if (currentPlayer === "x") {
+    turn.textContent = "Turn: User 1";
+  } else {
+    turn.textContent = "Turn: User 2";
+  }
+}
