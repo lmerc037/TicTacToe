@@ -14,14 +14,14 @@
     <h1>Tic Tac Toe Game</h1>
 
     <div id="tic-tac-toe">
-        <label>
-            <input type="radio" name="mode" value="user-vs-computer" checked>
-            User vs Computer
-        </label>
-        <label>
-            <input type="radio" name="mode" value="user-vs-user">
-            User vs User
-        </label>
+        <div class="mode-switch">
+            <input type="radio" name="mode" value="user-vs-computer" id="mode1" checked>
+            <label for="mode1">User vs Computer</label>
+            <input type="radio" name="mode" value="user-vs-user" id="mode2">
+            <label for="mode2">User vs User</label>
+        </div>
+
+
         <table id="board">
             <tr>
                 <td></td>
@@ -44,10 +44,17 @@
         <button id="reset-button">Reset</button>
         <div id="result">Result</div>
         <div id="turn">Turn: User</div>
+        <div id="user-wins">User wins: 0</div>
+        <div id="computer-wins">Computer wins: 0</div>
         <div id="user1-wins">User 1 wins: 0</div>
         <div id="user2-wins">User 2 wins: 0</div>
-
     </div>
+
+
+
+
+
+    <script src="script.js"></script>
 
 </body>
 
