@@ -3,13 +3,19 @@ const cells = board.getElementsByTagName("td");
 const resetButton = document.querySelector("#reset-button");
 const result = document.querySelector("#result");
 const turn = document.querySelector("#turn");
+let mode = "user-vs-computer";
 let currentPlayer = "x";
+let computerWins = 0;
+let userWins = 0;
 let user1Wins = 0;
 let user2Wins = 0;
 
-let mode = "user-vs-computer";
-let computerWins = 0;
-let userWins = 0;
+/* document.querySelectorAll("input[name='mode']").forEach(function (input) {
+  input.addEventListener("change", function () {
+    mode = input.value;
+    restart();
+  });
+}); */
 
 document.querySelectorAll("input[name='mode']").forEach(function (input) {
   input.addEventListener("change", function () {
@@ -26,6 +32,7 @@ document.querySelectorAll("input[name='mode']").forEach(function (input) {
       document.querySelector("#computer-wins").style.display = "none";
       document.querySelector("#user1-wins").style.display = "block";
       document.querySelector("#user2-wins").style.display = "block";
+      result.textContent = "";
     }
   });
 });
@@ -146,7 +153,7 @@ function restart() {
   for (let i = 0; i < cells.length; i++) {
     cells[i].textContent = "";
   }
-  result.textContent = "";
+
   if (mode === "user-vs-computer") {
     if (currentPlayer === "x") {
       turn.textContent = "Turn: User";

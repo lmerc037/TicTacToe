@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeu Tic Tac Toe</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
-</head>
+
 
 <body>
-    <h1>Tic Tac Toe Game</h1>
-
+    <h1>Tic Tac Toe</h1>
     <div id="tic-tac-toe">
+
+
         <div class="mode-switch">
             <input type="radio" name="mode" value="user-vs-computer" id="mode1" checked>
             <label for="mode1">User vs Computer</label>
@@ -34,20 +34,25 @@
                 <td></td>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td class="last"></td>
+                <td class="last"></td>
+                <td class="last"></td>
             </tr>
         </table>
 
         <br>
         <button id="reset-button">Reset</button>
-        <div id="result">Result</div>
+
         <div id="turn">Turn: User</div>
-        <div id="user-wins">User wins: 0</div>
-        <div id="computer-wins">Computer wins: 0</div>
-        <div id="user1-wins">User 1 wins: 0</div>
-        <div id="user2-wins">User 2 wins: 0</div>
+        <div class="resultcontainer">
+            <div id="user-wins">User score: 0</div>
+            <div id="computer-wins">Computer score: 0</div>
+            <div id="user1-wins">User 1 score: 0</div>
+            <div id="user2-wins">User 2 score: 0</div>
+        </div>
+
+        <div id="result"></div>
+
     </div>
 
 

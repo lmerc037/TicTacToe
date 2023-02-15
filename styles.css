@@ -1,3 +1,15 @@
+body{
+  background-color: #575757;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+}
+
+
 #tic-tac-toe {
   width: 400px;
   margin: 0 auto;
@@ -5,12 +17,14 @@
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: white;
 }
 
 #board {
   width: 100%;
   border-collapse: collapse;
-  border: 2px solid #ccc;
+  margin:50px 0;
+  
 }
 
 #board td {
@@ -23,23 +37,27 @@
 }
 
 #board td:nth-child(1) {
-  border-right: 2px solid #ccc;
-  border-bottom: 2px solid #ccc;
+  border-right: 3px solid #ccc;
+  border-bottom: 3px solid #ccc;
 }
 
 #board td:nth-child(2) {
-  border-right: 2px solid #ccc;
-  border-bottom: 2px solid #ccc;
-  border-left: 2px solid #ccc;
+  border-right: 3px solid #ccc;
+  border-bottom: 3px solid #ccc;
+  border-left: 3px solid #ccc;
 }
 
 #board td:nth-child(3) {
-  border-bottom: 2px solid #ccc;
-  border-left: 2px solid #ccc;
+  border-bottom: 3px solid #ccc;
+  border-left: 3px solid #ccc;
 }
 
 #board td:hover {
   background-color: #eee;
+}
+
+#board td.last{
+  border-bottom: none!important;
 }
 
 
@@ -64,15 +82,29 @@
   text-align: center;
 }
 
+.resultcontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  gap: 10px 20px;
+}
 
 
 #reset-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: lightgray;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+ 
 }
 
 #reset-button:hover {
