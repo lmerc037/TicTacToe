@@ -66,6 +66,25 @@ function checkForWin(player) {
   return false;
 }
 
+function computerTurn() {
+  let move = Math.floor(Math.random() * 9);
+  while (cells[move].textContent !== "") {
+    move = Math.floor(Math.random() * 9);
+  }
+  cells[move].textContent = "o";
+  turn.textContent = "Turn: User";
+  if (checkForWin("o")) {
+    result.textContent = "Computer wins!";
+    computerWins++;
+    restart();
+  } else if (checkForDraw()) {
+    result.textContent = "Draw!";
+    restart();
+  } else {
+    currentPlayer = "x";
+  }
+}
+
 function checkForDraw() {
   for (let i = 0; i < cells.length; i++) {
     if (cells[i].textContent === "") {
