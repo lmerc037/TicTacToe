@@ -10,13 +10,6 @@ let userWins = 0;
 let user1Wins = 0;
 let user2Wins = 0;
 
-/* document.querySelectorAll("input[name='mode']").forEach(function (input) {
-  input.addEventListener("change", function () {
-    mode = input.value;
-    restart();
-  });
-}); */
-
 document.querySelectorAll("input[name='mode']").forEach(function (input) {
   input.addEventListener("change", function () {
     mode = input.value;
