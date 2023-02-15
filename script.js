@@ -1,20 +1,25 @@
+// Select elements for the game
 const board = document.querySelector("#board");
 const cells = board.getElementsByTagName("td");
 const resetButton = document.querySelector("#reset-button");
 const result = document.querySelector("#result");
 const turn = document.querySelector("#turn");
-let mode = "user-vs-computer";
-let currentPlayer = "x";
-let computerWins = 0;
-let userWins = 0;
-let user1Wins = 0;
-let user2Wins = 0;
 
+// Define variables
+let mode = "user-vs-computer"; // default game mode
+let currentPlayer = "x"; // current player
+let computerWins = 0; // number of computer wins
+let userWins = 0; // number of user wins
+let user1Wins = 0; // number of user 1 wins
+let user2Wins = 0; // number of user 2 wins
+
+// Add event listener to radio buttons for game mode selection
 document.querySelectorAll("input[name='mode']").forEach(function (input) {
   input.addEventListener("change", function () {
     mode = input.value;
     restart();
 
+    // Show or hide elements based on game mode
     if (mode === "user-vs-computer") {
       document.querySelector("#user-wins").style.display = "block";
       document.querySelector("#computer-wins").style.display = "block";
@@ -30,6 +35,7 @@ document.querySelectorAll("input[name='mode']").forEach(function (input) {
   });
 });
 
+// Add event listener to reset button
 resetButton.addEventListener("click", function () {
   restart();
 });
@@ -37,12 +43,14 @@ resetButton.addEventListener("click", function () {
 for (let i = 0; i < cells.length; i++) {
   cells[i].addEventListener("click", function (event) {
     if (event.target.textContent === "" && currentPlayer === "x") {
+      // If it is player X's turn and the cell is empty, place X in the cell
       event.target.textContent = "x";
       if (mode === "user-vs-computer") {
         turn.textContent = "Turn: Computer";
       } else {
         turn.textContent = "Turn: User 2";
       }
+      // Check for a win or a draw
       if (checkForWin("x")) {
         if (mode === "user-vs-computer") {
           result.textContent = "Player X wins!";
@@ -55,22 +63,27 @@ for (let i = 0; i < cells.length; i++) {
         }
         restart();
       } else if (checkForDraw()) {
+        // If it's a draw, update the result and restart the game
         result.textContent = "Draw!";
         restart();
       } else {
+        // If the game continues, switch to player O's turn
         currentPlayer = "o";
         if (mode === "user-vs-computer") {
           computerTurn();
         }
       }
     } else if (event.target.textContent === "" && currentPlayer === "o") {
+      // If it is player O's turn and the cell is empty, place O in the cell
       event.target.textContent = "o";
       if (mode === "user-vs-computer") {
         turn.textContent = "Turn: User";
       } else {
         turn.textContent = "Turn: User 1";
       }
+      // Check for a win or a draw
       if (checkForWin("o")) {
+        // If O wins, update the result and restart the game
         if (mode === "user-vs-computer") {
           result.textContent = "Computer wins!";
           console.log(result.textContent);
@@ -81,15 +94,17 @@ for (let i = 0; i < cells.length; i++) {
         }
         restart();
       } else if (checkForDraw()) {
+        // If it's a draw, update the result and restart the game
         result.textContent = "Draw!";
         restart();
       } else {
+        // If the game continues, switch to player X's turn
         currentPlayer = "x";
       }
     }
   });
 }
-
+// Function to check if a player has won
 function checkForWin(player) {
   const combinations = [
     [0, 1, 2],
@@ -101,7 +116,7 @@ function checkForWin(player) {
     [0, 4, 8],
     [2, 4, 6],
   ];
-
+  // Check if any of the combinations match the player's moves
   for (const combination of combinations) {
     if (
       cells[combination[0]].textContent === player &&
@@ -113,7 +128,7 @@ function checkForWin(player) {
   }
   return false;
 }
-
+// Function to check if the game is a draw
 function checkForDraw() {
   for (let i = 0; i < cells.length; i++) {
     if (cells[i].textContent === "") {
@@ -122,7 +137,7 @@ function checkForDraw() {
   }
   return true;
 }
-
+// Function for computer's random move
 function computerTurn() {
   let move = Math.floor(Math.random() * 9);
   while (cells[move].textContent !== "") {
@@ -142,6 +157,7 @@ function computerTurn() {
   }
 }
 
+// Function to restart the game
 function restart() {
   for (let i = 0; i < cells.length; i++) {
     cells[i].textContent = "";
