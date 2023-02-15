@@ -169,10 +169,12 @@ function restart() {
     } else {
       turn.textContent = "Turn: Computer";
     }
-    document.querySelector("#user-wins").textContent = `User wins: ${userWins}`;
+    document.querySelector(
+      "#user-wins"
+    ).textContent = `User score: ${userWins}`;
     document.querySelector(
       "#computer-wins"
-    ).textContent = `Computer wins: ${computerWins}`;
+    ).textContent = `Computer score: ${computerWins}`;
   } else {
     if (currentPlayer === "x") {
       turn.textContent = "Turn: User 1";
@@ -181,9 +183,9 @@ function restart() {
     }
     document.querySelector(
       "#user1-wins"
-    ).textContent = `User 1 wins: ${user1Wins}`;
+    ).textContent = `User 1 score:${user1Wins}`;
     document.querySelector(
       "#user2-wins"
-    ).textContent = `User 2 wins: ${user2Wins}`;
+    ).textContent = `User 2 score: ${user2Wins}`;
   }
 }
