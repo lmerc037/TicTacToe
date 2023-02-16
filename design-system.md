@@ -12,6 +12,8 @@
 - `div#user-wins`, `div#computer-wins`, `div#user1-wins`, `div#user2-wins`: The containers for displaying the scores.
 - `div#result`: The container for displaying the game result.
 
+![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)
+
 ### Styles
 
 - `body`: The background color and font family of the body.
