@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu Tic Tac Toe</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Title of the game -->
+    <h1>Tic Tac Toe Game</h1>
+    <div id="tic-tac-toe">
+        <div class="mode-switch">
+            <input type="radio" name="mode" value="user-vs-computer" id="mode1" checked>
+            <!-- Radio button for user vs computer mode -->
+            <label for="mode1">User vs Computer</label>
+            <input type="radio" name="mode" value="user-vs-user" id="mode2">
+            <label for="mode2">User vs User</label>
+        </div>
+        <!-- Game board -->
+        <table id="board">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="last"></td>
+                <td class="last"></td>
+                <td class="last"></td>
+            </tr>
+        </table>
+        <br>
+        <!-- Reset button for the game -->
+        <button id="reset-button">Reset</button>
+        <!-- Display current turn -->
+        <div id="turn">Turn: User</div>
+        <div class="resultcontainer">
+            <!-- Display user score for user vs computer mode -->
+            <div id="user-wins">User score: 0</div>
+            <!-- Display computer score for user vs computer mode -->
+            <div id="computer-wins">Computer score: 0</div>
+            <!-- Display user 1 score for user vs user mode -->
+            <div id="user1-wins">User 1 score: 0</div>
+            <!-- Display user 2 score for user vs user mode -->
+            <div id="user2-wins">User 2 score: 0</div>
+        </div>
+
+        <!-- Display game result -->
+        <div id="result"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

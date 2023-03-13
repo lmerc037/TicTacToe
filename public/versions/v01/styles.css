@@ -1,0 +1,152 @@
+body{
+  background-color: #222F66;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #7B9CC9;
+}
+
+#tic-tac-toe {
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: white;
+}
+
+#board {
+  width: 100%;
+  border-collapse: collapse;
+  margin:50px 0 20px 0;
+  
+}
+
+#board td {
+  width: 80px;
+  height: 80px;
+  font-size: 48px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+#board td:nth-child(1) {
+  border-right: 3px solid #ccc;
+  border-bottom: 3px solid #ccc;
+}
+
+#board td:nth-child(2) {
+  border-right: 3px solid #ccc;
+  border-bottom: 3px solid #ccc;
+  border-left: 3px solid #ccc;
+}
+
+#board td:nth-child(3) {
+  border-bottom: 3px solid #ccc;
+  border-left: 3px solid #ccc;
+}
+
+#board td:hover {
+  background-color: #eee;
+}
+
+#board td.last{
+  border-bottom: none!important;
+}
+
+
+#board td.x {
+  color: blue!important;
+}
+
+#board td.o {
+  color: red;
+}
+
+
+#result {
+  margin-top: 10px;
+  font-size: 24px;
+  text-align: center;
+}
+
+#turn {
+  margin-top: 10px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.resultcontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  gap: 10px 20px;
+}
+
+#reset-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #7B9CC9;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+ 
+}
+
+#reset-button:hover {
+  background-color: gray;
+}
+
+#user1-wins, #user2-wins{
+
+  display:none;
+}
+
+.mode-switch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.mode-switch label {
+  display: inline-block;
+  position: relative;
+  padding: 10px 20px;
+  background-color: #fff;
+  color: #333;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  margin: 0 10px;
+}
+
+
+.mode-switch input[type="radio"] {
+  display: none;
+}
+
+.mode-switch input[type="radio"]:checked + label {
+  color: #fff;
+  background-color: #6282B0;
+}
+
+.mode-switch input[type="radio"]:checked + label:before {
+  transform: scale(1.2);
+}
