@@ -53,8 +53,38 @@ $player2 = $_SESSION['player2'];
         <div class="player-name">It's <span id="current-player"><?php echo $player1 ?>'s</span> turn</div>
         <br>
 
-
-
+        <script>
+            function playTurn(cellId) {
+                const cell = document.getElementById(cellId);
+                if (!cell.innerHTML) {
+                    const xhr = new XMLHttpRequest();
+                    xhr.open('POST', 'update_board.php');
+                    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                    xhr.onload = function() {
+                        if (xhr.status === 200) {
+                            const result = JSON.parse(xhr.responseText);
+                            if (result.valid) {
+                                cell.innerHTML = currentPlayer;
+                                if (checkWin()) {
+                                    alert(currentPlayer + ' wins!');
+                                    score[currentPlayer === 'X' ? 'player1' : 'player2']++;
+                                    resetBoard();
+                                    updateScore();
+                                } else if (checkTie()) {
+                                    alert('Tie!');
+                                    resetBoard();
+                                } else {
+                                    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+                                }
+                            } else {
+                                alert(result.message);
+                            }
+                        }
+                    };
+                    xhr.send('cellId=' + cellId + '&player=' + currentPlayer);
+                }
+            }
+        </script>
     </div>
 
 </body>
