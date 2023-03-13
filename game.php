@@ -1,3 +1,18 @@
+<?php
+// Start session to store game data
+session_start();
+
+// Initialize game board with empty cells if it doesn't exist in session
+if (!isset($_SESSION['board'])) {
+    $_SESSION['board'] = ['', '', '', '', '', '', '', '', ''];
+}
+
+// Get player names from session
+$player1 = $_SESSION['player1'];
+$player2 = $_SESSION['player2'];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
