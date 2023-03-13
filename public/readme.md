@@ -2,9 +2,9 @@
 
 ## Overview
 
-- This is a PHP file that implements a tic-tac-toe game in user vs user mode. The file starts by starting a session to store game data. If the game board is not already in the session, it is initialized with empty cells. The player names are retrieved from the session, and the score is initialized with 0 for both players if it does not exist in the session. The game board is then displayed using an HTML table, and a div is added to display the current player's turn.
+- This is a PHP/Javascript implementtion of a tic-tac-toe game in user vs user mode. It starts by starting a session to store game data. If the game board is not already in the session, it is initialized with empty cells. The player names are retrieved from the session, and the score is initialized with 0 for both players if it does not exist in the session. The game board is then displayed using an HTML table, and a div is added to display the current player's turn.
 
-- The file includes JavaScript functions for playing a turn, checking for a win or tie, resetting the board, updating the score, and starting a new game. These functions are called in response to user interactions with the game board and buttons. The script also makes use of XMLHttpRequest objects to communicate with the server to update the board, score, and reset the game.
+- The implementation includes JavaScript functions for playing a turn, checking for a win or tie, resetting the board, updating the score, and starting a new game. These functions are called in response to user interactions with the game board and buttons. The script also makes use of XMLHttpRequest objects to communicate with the server to update the board, score, and reset the game.
 
 - The HTML code includes player names, the game board and the game buttons "New Game" and "Reset Game,".
 
