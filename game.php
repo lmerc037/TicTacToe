@@ -124,6 +124,14 @@ $player2 = $_SESSION['player2'];
                 }
                 return true;
             }
+
+
+            function resetBoard() {
+                const cells = document.querySelectorAll('td');
+                for (let i = 0; i < cells.length; i++) {
+                    cells[i].innerHTML = '';
+                }
+            }
         </script>
     </div>
 
