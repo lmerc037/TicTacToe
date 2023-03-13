@@ -109,6 +109,21 @@ $player2 = $_SESSION['player2'];
 
                 return false;
             }
+
+            function checkLine(a, b, c) {
+                const cells = document.querySelectorAll('td');
+                return cells[a].innerHTML && cells[a].innerHTML === cells[b].innerHTML && cells[b].innerHTML === cells[c].innerHTML;
+            }
+
+            function checkTie() {
+                const cells = document.querySelectorAll('td');
+                for (let i = 0; i < cells.length; i++) {
+                    if (!cells[i].innerHTML) {
+                        return false;
+                    }
+                }
+                return true;
+            }
         </script>
     </div>
 
