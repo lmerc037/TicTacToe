@@ -188,6 +188,13 @@ if (!isset($_SESSION['score'])) {
                 xhr.send();
             }
         </script>
+
+
+        <div class="button-container">
+            <button class="game-button" onclick="startNewGame()">New Game</button>
+            <a class="game-button" href="reset.php">Reset Game</a>
+        </div>
+
     </div>
 
 </body>
