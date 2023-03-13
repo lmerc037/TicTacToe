@@ -21,8 +21,8 @@ if (!isset($_SESSION['score'])) {
     // Get score from session if it already exists
     $score = $_SESSION['score'];
 }
-
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -98,10 +98,16 @@ if (!isset($_SESSION['score'])) {
                                         }
                                     };
                                     xhr2.send('player1=' + score.player1 + '&player2=' + score.player2);
+
+                                    // Set starting player to the winner
+                                    startingPlayer = currentPlayer;
                                 } else if (checkTie()) {
                                     alert('Tie!');
+                                    // Set starting player to the other player
+                                    startingPlayer = currentPlayer === 'X' ? 'O' : 'X';
                                 } else {
                                     currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+                                    document.getElementById('current-player').innerHTML = currentPlayer === 'X' ? '<?php echo $player1 ?>' : '<?php echo $player2 ?>';
                                 }
                             } else {
                                 alert(result.message);
@@ -153,6 +159,7 @@ if (!isset($_SESSION['score'])) {
             }
 
 
+
             function resetBoard() {
                 const cells = document.querySelectorAll('td');
                 for (let i = 0; i < cells.length; i++) {
@@ -189,11 +196,15 @@ if (!isset($_SESSION['score'])) {
             }
         </script>
 
-
         <div class="button-container">
             <button class="game-button" onclick="startNewGame()">New Game</button>
             <a class="game-button" href="reset.php">Reset Game</a>
         </div>
+
+
+
+
+        <!-- Reset button for the game -->
 
     </div>
 
