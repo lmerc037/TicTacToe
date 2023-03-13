@@ -11,6 +11,17 @@ if (!isset($_SESSION['board'])) {
 $player1 = $_SESSION['player1'];
 $player2 = $_SESSION['player2'];
 
+// Initialize score with 0 for both players if it doesn't exist in session
+if (!isset($_SESSION['score'])) {
+    $_SESSION['score'] = [
+        'player1' => 0,
+        'player2' => 0,
+    ];
+} else {
+    // Get score from session if it already exists
+    $score = $_SESSION['score'];
+}
+
 ?>
 
 <!DOCTYPE html>
