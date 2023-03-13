@@ -132,6 +132,13 @@ $player2 = $_SESSION['player2'];
                     cells[i].innerHTML = '';
                 }
             }
+
+            function updateScore() {
+                const player1Score = document.getElementById('player1-score');
+                const player2Score = document.getElementById('player2-score');
+                player1Score.innerHTML = score.player1;
+                player2Score.innerHTML = score.player2;
+            }
         </script>
     </div>
 
