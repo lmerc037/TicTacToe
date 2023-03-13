@@ -139,6 +139,27 @@ $player2 = $_SESSION['player2'];
                 player1Score.innerHTML = score.player1;
                 player2Score.innerHTML = score.player2;
             }
+
+            const cells = document.querySelectorAll('td');
+            for (let i = 0; i < cells.length; i++) {
+                cells[i].addEventListener('click', function() {
+                    playTurn(i);
+                });
+            }
+
+
+            function startNewGame() {
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', 'reset_board.php');
+                xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        resetBoard();
+                        currentPlayer = startingPlayer;
+                    }
+                };
+                xhr.send();
+            }
         </script>
     </div>
 
