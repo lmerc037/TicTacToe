@@ -84,6 +84,31 @@ $player2 = $_SESSION['player2'];
                     xhr.send('cellId=' + cellId + '&player=' + currentPlayer);
                 }
             }
+
+
+
+            function checkWin() {
+                // Check rows
+                for (let i = 0; i < 9; i += 3) {
+                    if (checkLine(i, i + 1, i + 2)) {
+                        return true;
+                    }
+                }
+
+                // Check columns
+                for (let i = 0; i < 3; i++) {
+                    if (checkLine(i, i + 3, i + 6)) {
+                        return true;
+                    }
+                }
+
+                // Check diagonals
+                if (checkLine(0, 4, 8) || checkLine(2, 4, 6)) {
+                    return true;
+                }
+
+                return false;
+            }
         </script>
     </div>
 
