@@ -54,9 +54,13 @@ $player2 = $_SESSION['player2'];
         <br>
 
         <script>
+            let currentPlayer = 'X';
+            let score = <?php echo json_encode($score); ?>;
+            let startingPlayer = '<?php echo $score["player1"] > $score["player2"] ? "O" : "X"; ?>';
+
             function playTurn(cellId) {
                 const cell = document.getElementById(cellId);
-                if (!cell.innerHTML) {
+                if (!cell.innerHTML && !checkWin()) {
                     const xhr = new XMLHttpRequest();
                     xhr.open('POST', 'update_board.php');
                     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -68,11 +72,23 @@ $player2 = $_SESSION['player2'];
                                 if (checkWin()) {
                                     alert(currentPlayer + ' wins!');
                                     score[currentPlayer === 'X' ? 'player1' : 'player2']++;
-                                    resetBoard();
                                     updateScore();
+
+                                    // Update session score
+                                    const xhr2 = new XMLHttpRequest();
+                                    xhr2.open('POST', 'update_score.php');
+                                    xhr2.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                                    xhr2.onload = function() {
+                                        if (xhr2.status === 200) {
+                                            const sessionScore = JSON.parse(xhr2.responseText);
+                                            score.player1 = sessionScore.player1;
+                                            score.player2 = sessionScore.player2;
+                                            updateScore();
+                                        }
+                                    };
+                                    xhr2.send('player1=' + score.player1 + '&player2=' + score.player2);
                                 } else if (checkTie()) {
                                     alert('Tie!');
-                                    resetBoard();
                                 } else {
                                     currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
                                 }
